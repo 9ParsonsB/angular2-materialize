@@ -1,20 +1,31 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "baseUrl": "src",
-    "sourceMap": true,
-    "declaration": false,
+    "target": "es5",
+    "module": "commonjs",
     "moduleResolution": "node",
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "declaration": true,
+    "removeComments": true,
+    "stripInternal": true,
+    "outDir": "lib_commonjs/",
+    "rootDir": "src",
     "lib": [
-      "es2016",
-      "dom"
+      "dom",
+      "es5"
     ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "angularCompilerOptions": {
+    "decoratorsAs": "static fields",
+    "skipTemplateCodegen": true,
+    "preserveWhitespaces": false,
+    "enableIvy": true
   }
 }

@@ -77,7 +77,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
     // this is here to trigger change detection for select elements
     @Input()
-    public set materializeSelectOptions(options: any) {
+    public set materializeSelectOptions(_options: any) {
     }
 
     //used for the datepicker at the moment
@@ -165,7 +165,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
             const nativeElement = this._el.nativeElement;
             const jQueryElement = $(nativeElement);
 
-            jQueryElement.on("change", e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
+            jQueryElement.on("change", _e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
         }
 
         if (this.isDatePicker()) {
@@ -183,7 +183,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                         picker.set('select', value);
                     }
                 }
-                jqueryPickerElement.on('change', e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
+                jqueryPickerElement.on('change', _e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
             });
         }
 
@@ -199,16 +199,16 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                 } else {
                     picker.val(jqueryPickerElement.val());
                 }
-                jqueryPickerElement.on('change', e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
+                jqueryPickerElement.on('change', _e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
            });
         }
 
         if (this.isChips()) {
             const nativeElement = this._el.nativeElement;
             const jQueryElement = $(nativeElement);
-            jQueryElement.on("chip.add", (e, chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.add", chip))));
-            jQueryElement.on("chip.delete", (e, chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.delete", chip))));
-            jQueryElement.on("chip.select", (e, chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.select", chip))));
+            jQueryElement.on("chip.add", (_e, chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.add", chip))));
+            jQueryElement.on("chip.delete", (_e, chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.delete", chip))));
+            jQueryElement.on("chip.select", (_e, chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.select", chip))));
         }
 
         if (this.isTextarea()) {
@@ -297,13 +297,5 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
 
     private isTextarea() {
         return this._el.nativeElement.nodeName == "TEXTAREA";
-    }
-
-    private enableDPButtons() {
-        $('.picker__clear').removeAttr("disabled");
-        $('.picker__today').removeAttr("disabled");
-        $('.picker__close').removeAttr("disabled");
-        $('.picker__select--year').removeAttr("disabled");
-        $('.picker__select--month').removeAttr("disabled");
     }
 }

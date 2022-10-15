@@ -14,7 +14,7 @@ import { MaterializeDirective } from "./materialize-directive";
     ]
 })
 export class MaterializeModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<MaterializeModule> {
         return {
             ngModule: MaterializeModule
         };

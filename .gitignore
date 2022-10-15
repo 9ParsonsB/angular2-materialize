@@ -5,6 +5,8 @@ jspm_packages
 node_modules
 typings
 typings.json
+lib_commonjs/
+lib_esmodule/
 
 package
 *.tgz
@@ -29,3 +31,4 @@ test/**/*.js.map
 
 .DS_Store
 .vscode
+/.project
