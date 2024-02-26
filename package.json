@@ -4,11 +4,11 @@
   "description": "Angular 2 support for Materialize CSS framework",
   "repository": {
     "type": "git",
-    "url": "https://github.com/InfomediaLtd/angular2-materialize.git"
+    "url": "https://github.com/9parsonsb/angular2-materialize.git"
   },
-  "homepage": "https://github.com/InfomediaLtd/angular2-materialize#readme",
+  "homepage": "https://github.com/9parsonsb/angular2-materialize#readme",
   "bugs": {
-    "url": "https://github.com/InfomediaLtd/angular2-materialize/issues"
+    "url": "https://github.com/9parsonsb/angular2-materialize/issues"
   },
   "files": [
     "lib_commonjs",
@@ -16,10 +16,10 @@
     "README",
     "LICENSE"
   ],
-  "author": "Ruby Boyarski <rubyboy@gmail.com>",
+  "author": "Ben Parsons <9parsonsb@gmail.com>",
   "license": "MIT",
   "keywords": [
-    "angular 14",
+    "angular 15",
     "materialize",
     "materializecss",
     "materialize-css",
@@ -33,30 +33,28 @@
     "build:commonjs": "rimraf lib_commonjs && ngc -p tsconfig.json",
     "build:esmodule": "rimraf lib_esmodule && ngc -p tsconfig.module.json",
     "build": "npm run build:commonjs && npm run build:esmodule",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "ng": "ng"
   },
   "peerDependencies": {
-    "@angular/common": ">=14.0.0",
-    "@angular/core": ">=14.0.0"
+    "@angular/common": ">=15.0.0",
+    "@angular/core": ">=15.0.0"
   },
   "devDependencies": {
-    "@angular/animations": "^14.2.6",
-    "@angular/cli": "^14.2.6",
-    "@angular/common": "^14.2.6",
-    "@angular/compiler": "^14.2.6",
-    "@angular/compiler-cli": "^14.2.6",
-    "@angular/core": "^14.2.6",
-    "@angular/forms": "^14.2.6",
-    "@angular/platform-browser": "^14.2.6",
-    "@angular/platform-browser-dynamic": "^14.2.6",
-    "@angular/router": "^14.2.6",
+    "@angular/animations": "v15-lts",
+    "@angular/cli": "v15-lts",
+    "@angular/common": "v15-lts",
+    "@angular/compiler": "v15-lts",
+    "@angular/compiler-cli": "v15-lts",
+    "@angular/core": "v15-lts",
+    "@angular/forms": "v15-lts",
+    "@angular/platform-browser": "v15-lts",
+    "@angular/platform-browser-dynamic": "v15-lts",
+    "@angular/router": "v15-lts",
     "commitizen": "4.2.5",
     "core-js": "^3.25.5",
     "cz-conventional-changelog": "3.3.0",
-    "ghooks": "2.0.4",
-    "gulp": "4.0.2",
     "gulp-rimraf": "1.0.0",
-    "gulp-typescript": "6.0.0-alpha.1",
     "hammerjs": "^2.0.8",
     "jquery": "^3.6.1",
     "materialize-css": "^1.0.0",
@@ -65,9 +63,7 @@
     "run-sequence": "2.2.1",
     "rxjs": "^7.5.7",
     "semantic-release": "^19.0.5",
-    "tsickle": "^0.46.3",
-    "typescript": "^4.7.2",
-    "webpack": "^5.74.0",
+    "typescript": "~4.8.4",
     "webpack-dev-server": "^4.11.1",
     "zone.js": "0.11.8"
   }
