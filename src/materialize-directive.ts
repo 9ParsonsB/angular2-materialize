@@ -9,7 +9,6 @@ import {
     AfterViewInit,
     EventEmitter
 } from '@angular/core';
-import { CustomEvent } from './custom-event-polyfill';
 
 // export type MaterializeOptions =
 // "collapsible" |
@@ -157,7 +156,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
             const nativeElement = this._el.nativeElement;
             const jQueryElement = $(nativeElement);
 
-            jQueryElement.on("change", _e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
+            jQueryElement.on("change", _e => nativeElement.dispatchEvent((new CustomEvent("input"))));
         }
 
         if (this.isDatePicker()) {
@@ -175,7 +174,7 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                         picker.set('select', value);
                     }
                 }
-                jqueryPickerElement.on('change', _e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
+                jqueryPickerElement.on('change', _e => nativeElement.dispatchEvent((new CustomEvent("input"))));
             });
         }
 
@@ -191,20 +190,20 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                 } else {
                     picker.val(jqueryPickerElement.val());
                 }
-                jqueryPickerElement.on('change', _e => nativeElement.dispatchEvent((<any>CustomEvent("input"))));
+                jqueryPickerElement.on('change', _e => nativeElement.dispatchEvent((new CustomEvent("input"))));
            });
         }
 
         if (this.isChips()) {
             const nativeElement = this._el.nativeElement;
             const jQueryElement = $(nativeElement);
-            jQueryElement.on("chip.add", (_e, chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.add", chip))));
-            jQueryElement.on("chip.delete", (_e, chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.delete", chip))));
-            jQueryElement.on("chip.select", (_e, chip) => nativeElement.dispatchEvent((<any>CustomEvent("chip.select", chip))));
+            jQueryElement.on("chip.add", (_e, chip) => nativeElement.dispatchEvent((new CustomEvent("chip.add", chip))));
+            jQueryElement.on("chip.delete", (_e, chip) => nativeElement.dispatchEvent((new CustomEvent("chip.delete", chip))));
+            jQueryElement.on("chip.select", (_e, chip) => nativeElement.dispatchEvent((new CustomEvent("chip.select", chip))));
         }
 
         if (this.isTextarea()) {
-            this._el.nativeElement.dispatchEvent((<any>CustomEvent("autoresize", {
+            this._el.nativeElement.dispatchEvent((new CustomEvent("autoresize", {
                 bubbles: true,
                 cancelable: false,
                 detail: undefined
