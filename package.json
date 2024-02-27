@@ -51,6 +51,8 @@
     "@angular/platform-browser": "v15-lts",
     "@angular/platform-browser-dynamic": "v15-lts",
     "@angular/router": "v15-lts",
+    "@materializecss/materialize": "^2.0.3",
+    "@types/jquery":"3.5.29",
     "commitizen": "4.2.5",
     "core-js": "^3.25.5",
     "cz-conventional-changelog": "3.3.0",

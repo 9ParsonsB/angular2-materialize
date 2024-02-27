@@ -9,10 +9,7 @@ import {
     AfterViewInit,
     EventEmitter
 } from '@angular/core';
-import {CustomEvent} from './custom-event-polyfill';
-
-declare var $: any;
-declare var Materialize: any;
+import { CustomEvent } from './custom-event-polyfill';
 
 // export type MaterializeOptions =
 // "collapsible" |
@@ -135,17 +132,12 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
     }
 
     private performElementUpdates() {
-        // it should have been created by now, but confirm anyway
-        if (Materialize && Materialize.updateTextFields) {
-            Materialize.updateTextFields();
-        }
-
         // handle select changes from the HTML
         if (this.isSelect() && this.changeListenerShouldBeAdded) {
             const nativeElement = this._el.nativeElement;
             const jQueryElement = $(nativeElement);
             jQueryElement.on("change", e => {
-                if (!e.originalEvent || !e.originalEvent.internalToMaterialize) {
+                if (!e.originalEvent || (!e.originalEvent as any).internalToMaterialize) {
                     const event: any = document.createEvent("CustomEvent");
                     //if (jQueryElement.attr("multiple")) {
                     //event.initCustomEvent("input",false,false,undefined);
@@ -246,15 +238,15 @@ export class MaterializeDirective implements AfterViewInit,DoCheck,OnChanges,OnD
                     }
                 } else {
                     // fallback to running this function on the global Materialize object
-                    if (Materialize[functionName]) {
+                    if (window.M[functionName]) {
                         if (params) {
                             if (params instanceof Array) {
-                                Materialize[functionName](...params);
+                                window.M[functionName](...params);
                             } else {
                                 throw new Error("Params has to be an array.");
                             }
                         } else {
-                            Materialize[functionName]();
+                            window.M[functionName]();
                         }
                     } else {
                         throw new Error("Couldn't find materialize function ''" + functionName + "' on element or the global Materialize object.");
